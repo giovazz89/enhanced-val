@@ -1,6 +1,41 @@
 (function ($) {
   var originalVal = $.fn.val;
   
+  var customVals = {
+    inputtext: function(element, values, resetField = true){
+      if (typeof values != 'undefined')
+        for(var i in values){
+          var newVal = values[i];
+          if(!resetField) newVal = element.originalVal() + newVal;
+          element.originalVal(newValue);
+        }
+      else
+        return element.originalVal();
+    },
+    inputcheckbox: function(element, values, resetField = true){
+      if (typeof values != 'undefined'){
+        if(resetField)
+          element[0].checked = false;
+        for(var i in values)
+          if(values[i] == element.originalVal())
+            element[0].checked = true;
+      }
+      else if(element[0].checked == false) return null;
+      else return element.originalVal();
+    }
+    
+    other: function(element, value, resetFiled = true){
+      if (typeof values != 'undefined')
+        for(var i in values){
+          var newVal = values[i];
+          if(!resetField) newVal = element.text() + newVal;
+          element.text(newValue);
+        }
+      else
+        return element.text();
+    }
+  }
+  
   $.fn.val = function(value, resetField = true) {
     
     /* if specified value set it

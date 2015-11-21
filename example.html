@@ -4,8 +4,37 @@
     
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="enhanced-val.js"></script>
+    <style type="text/css">
+    	body * { margin: 5px 10px; }
+    	body hr { margin: 20px 0; }
+    </style>
   </head>
   <body>
-    <input type="text"/><button>Get val</button>
+  	<h4>Input text</h4>
+    <input type="text"/><button onclick="$(this).next().val($(this).prev().val());">Get val</button><span></span>
+    <br/>
+    <input type="text"/><button onclick="$(this).prev().val($(this).next().val());">Set val</button><span>test</span>
+    <br/>
+    <input type="text"/><button onclick="$(this).prev().val($(this).next().val(), false);">Set "non reset" val</button><span>test</span>
+
+    <hr/>
+
+  	<h4>Input checkbox</h4>
+    <span><input type="checkbox" value="nowIsChecked" checked/><button onclick="$(this).next().val($(this).prev().val());">Get val</button><span></span></span>
+    <br/>
+    <span><input type="checkbox" value="nowIsChecked" checked/><input type="checkbox" value="test"/></span>
+    <button onclick="$(this).prev().find('input').val($(this).next().val());">Set val</button><span>test</span>
+    <br/>
+    <span><input type="checkbox" value="nowIsChecked" checked/><input type="checkbox" value="test"/></span>
+    <button onclick="$(this).prev().find('input').val($(this).next().val(), false);">Set "non reset" val</button><span>test</span>
+
+    <hr/>
+
+  	<h4>Any other html element</h4>
+    <span>Example text content to get</span><button onclick="$(this).next().val($(this).prev().val());">Get val</button><span></span>
+    <br/>
+    <span>Span to fill</span><button onclick="$(this).prev().val($(this).next().val());">Set val</button><span>test</span>
+    <br/>
+    <span>Span to fill</span><button onclick="$(this).prev().val($(this).next().val(), false);">Set "non reset" val</button><span>test</span>
   </body>
 </html>

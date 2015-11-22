@@ -11,4 +11,6 @@ Param | Type | Default | Description
 ------|------|---------|------------
 value | string or string[ ] | | The value/values you want to set to the objects: if not present it returns the current value
 resetField | boolean | true | if false doesn't overwrite the previos value, but appends the new one to it
-returns | string or string[ ] | | The function returns the string value for each selected element if no value to set is specified
+
+
+enhanched val (.val()) returns string or string[ ]: the function returns the string value for each selected element if no value to set is specified

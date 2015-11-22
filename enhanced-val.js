@@ -16,6 +16,9 @@
         textarea: function(element, values, resetField){
             return customVals.inputtext(element, values, resetField);
         },
+        inputhidden: function(element, values, resetField){
+            return customVals.inputtext(element, values, resetField);
+        },
         inputcheckbox: function(element, values, resetField){
             if (typeof values != typeof undefined){
                 if(resetField)

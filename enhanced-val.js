@@ -13,6 +13,9 @@
             else
                 return element[0].value;
         },
+        textarea: function(element, values, resetField){
+            return customVals.inputtext(element, values, resetField);
+        },
         inputcheckbox: function(element, values, resetField){
             if (typeof values != typeof undefined){
                 if(resetField)
@@ -63,6 +66,7 @@
             return;
         }
 
+
         /* if not specified value return
         ---------------------------------------------------------
         */
@@ -81,7 +85,7 @@
 
         if(returnValues.length == 0) return;
         if(returnValues.length == 1) returnValues = returnValues[0];
-
+        
         return returnValues;
     };
 

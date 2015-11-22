@@ -19,6 +19,15 @@
 
     <hr/>
 
+  	<h4>Textarea</h4>
+    <textarea rows="2"></textarea><button onclick="$(this).next().val($(this).prev().val());">Get val</button><span></span>
+    <br/>
+    <textarea rows="2"></textarea><button onclick="$(this).prev().val($(this).next().val());">Set val</button><span>test</span>
+    <br/>
+    <textarea rows="2"></textarea><button onclick="$(this).prev().val($(this).next().val(), false);">Set "non reset" val</button><span>test</span>
+
+    <hr/>
+
   	<h4>Input checkbox</h4>
     <span><input type="checkbox" value="nowIsChecked" checked/><button onclick="$(this).next().val($(this).prev().val());">Get val</button><span></span></span>
     <br/>

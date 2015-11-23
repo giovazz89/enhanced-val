@@ -13,10 +13,10 @@
             else
                 return element[0].value;
         },
-        textarea: function(element, values, resetField){
+        inputpassword: function(element, values, resetField){
             return customVals.inputtext(element, values, resetField);
         },
-        inputhidden: function(element, values, resetField){
+        textarea: function(element, values, resetField){
             return customVals.inputtext(element, values, resetField);
         },
         inputcheckbox: function(element, values, resetField){
@@ -31,15 +31,22 @@
             else return element[0].value;
         },
 
+        // manage unhandled tag names
         other: function(element, values, resetField){
-            if (typeof values != typeof undefined)
-                for(var i in values){
-                    var newValue = values[i];
-                    if(!resetField) newValue = element.html() + newValue;
-                    element.html(newValue);
-                }
-            else
-                return element.html();
+            // if the unhandled element tag name is "input" get the value, otherwise the html
+            if(element[0].tagName.toLowerCase() == 'input'){
+                return customVals.inputtext(element, values, resetField);
+            }
+            else{
+                if (typeof values != typeof undefined)
+                    for(var i in values){
+                        var newValue = values[i];
+                        if(!resetField) newValue = element.html() + newValue;
+                        element.html(newValue);
+                    }
+                else
+                    return element.html();
+            }
         }
     }
 

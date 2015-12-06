@@ -30,6 +30,32 @@
             else if(element[0].checked == false) return null;
             else return element[0].value;
         },
+        option: function(element, values, resetField){
+            if (typeof values != typeof undefined){
+                if(resetField)
+                    element[0].selected = false;
+                for(var i in values)
+                    if(values[i] == element[0].value)
+                        element[0].selected = true;
+            }
+            else if(element[0].selected == false) return null;
+            else return element[0].value;
+        },
+        select: function(element, values, resetField){
+            // if not multiple do not select more than one value
+            if(typeof element.attr('multiple') == typeof undefined)
+                resetField = true;
+
+            // get the value of each option (if it is not setting any)
+            var vals = [], val;
+            element.find('option').each(function(){
+                val = $(this).val(values, resetField);
+                if(val != undefined)
+                    vals.push(val);
+            });
+
+            return vals;
+        },
 
         // manage unhandled tag names
         other: function(element, values, resetField){
@@ -87,23 +113,23 @@
             var node = this.tagName.toLowerCase();
             if (typeof $(this).attr('type') != typeof undefined)
                 node += $(this).attr('type');
+
+            // if new value is array concat
+            var newVals;
             if(customVals.hasOwnProperty(node))
-                returnValues.push(customVals[node]($(this)));
+                newVals = customVals[node]($(this));
             else
-                returnValues.push(customVals.other($(this)));
+                newVals = customVals.other($(this));
+
+            if($.isArray(newVals))
+                Array.prototype.push.apply(returnValues, newVals);
+            else
+                returnValues.push(newVals);
         });
 
         if(returnValues.length == 0) return;
         if(returnValues.length == 1) returnValues = returnValues[0];
         
         return returnValues;
-    };
-
-    $.fn.getSingleVal = function() {
-        var element = $(this);
-    };
-
-    $.fn.setSingleVal = function(value, resetField) {
-        var element = $(this);
     };
 })(jQuery);

@@ -39,6 +39,29 @@
 
     <hr/>
 
+  	<h4>Select</h4>
+    <select>
+    	<option value="Test_1" selected>Test 1</option>
+    	<option value="Test_2">Test 2</option>
+	</select>
+	<button onclick="$(this).next().val($(this).prev().val());">Get val</button><span></span>
+    <br/>
+    
+    <select>
+    	<option value="Test_1" selected>Test 1</option>
+    	<option value="Test_2">Test 2</option>
+	</select>
+	<button onclick="$(this).prev().val($(this).next().val());">Set val</button><span>Test_2</span>
+    <br/>
+    
+    <select multiple>
+    	<option value="Test_1" selected>Test 1</option>
+    	<option value="Test_2">Test 2</option>
+	</select>
+	<button onclick="$(this).prev().val($(this).next().val(), false);">Set "non reset" val</button><span>Test_2</span>
+
+    <hr/>
+
   	<h4>Any other html element</h4>
     <span>Example text content to get</span><button onclick="$(this).next().val($(this).prev().val());">Get val</button><span></span>
     <br/>

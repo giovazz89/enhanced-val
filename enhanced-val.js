@@ -13,9 +13,6 @@
             else
                 return element[0].value;
         },
-        inputpassword: function(element, values, resetField){
-            return customVals.inputtext(element, values, resetField);
-        },
         textarea: function(element, values, resetField){
             return customVals.inputtext(element, values, resetField);
         },

@@ -11,7 +11,7 @@
   </head>
   <body>
   	<h4>Input text</h4>
-    <input type="text"/><button onclick="$(this).next().val($(this).prev().val());">Get val</button><span></span>
+    <input type="text" value="test"/><button onclick="$(this).next().val($(this).prev().val());">Get val</button><span></span>
     <br/>
     <input type="text"/><button onclick="$(this).prev().val($(this).next().val());">Set val</button><span>test</span>
     <br/>
@@ -20,7 +20,7 @@
     <hr/>
 
   	<h4>Textarea</h4>
-    <textarea rows="2"></textarea><button onclick="$(this).next().val($(this).prev().val());">Get val</button><span></span>
+    <textarea rows="2">test</textarea><button onclick="$(this).next().val($(this).prev().val());">Get val</button><span></span>
     <br/>
     <textarea rows="2"></textarea><button onclick="$(this).prev().val($(this).next().val());">Set val</button><span>test</span>
     <br/>

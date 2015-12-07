@@ -15,3 +15,6 @@ resetField | boolean | true | **Optional.** If false doesn't overwrite the previ
 
 
 enhanched val (.val()) **returns** the string value for each selected element if no value to set is specified: the return format can be **string or string[ ]**
+
+
+[Example here](http://htmlpreview.github.io/?https://raw.githubusercontent.com/giovazz89/enhanced-val/master/example.html)

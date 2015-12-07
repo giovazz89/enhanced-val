@@ -30,6 +30,9 @@
             else if(element[0].checked == false) return null;
             else return element[0].value;
         },
+        inputradio: function(element, values, resetField){
+            return customVals.inputcheckbox(element, values, resetField);
+        },
         option: function(element, values, resetField){
             if (typeof values != typeof undefined){
                 if(resetField)
